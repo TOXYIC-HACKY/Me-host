@@ -42,7 +42,7 @@ class AIAssistantLoginForm {
     
     setupSocialButtons() {
         this.socialButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
+            button.addEventListener('click', () => {
                 const provider = button.querySelector('span').textContent.trim();
                 this.handleSocialLogin(provider, button);
             });
@@ -204,15 +204,16 @@ class AIAssistantLoginForm {
             document.querySelector('.signup-section').style.display = 'none';
             document.querySelector('.auth-separator').style.display = 'none';
             
-            // Show neural success
+            // Update and show neural success message
+            this.successMessage.textContent = 'Welcome to HACKLLINK TECH';
             this.successMessage.classList.add('show');
             
         }, 300);
         
-        // Redirect after neural connection established
+        // Redirect after showing the welcome effect
         setTimeout(() => {
             console.log('Neural link established - accessing AI workspace...');
-            // window.location.href = '/ai-dashboard';
+            window.location.href = '/dashboard.html'; // Change to your actual dashboard path
         }, 3200);
     }
 }
